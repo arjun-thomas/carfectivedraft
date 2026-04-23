@@ -280,8 +280,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                 }
             } else {
-                // Remove the empty file object that FormData might have added
-                delete data[key];
+                // Send empty object instead of deleting to prevent backend crash
+                data[key] = {};
             }
         }
 
