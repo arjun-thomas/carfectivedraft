@@ -1,0 +1,466 @@
+/* Questionnaire Page Base */
+.questionnaire-page {
+    padding-top: 180px;
+    padding-bottom: 5rem;
+    min-height: 100vh;
+    background: radial-gradient(circle at top right, rgba(212, 175, 55, 0.03), transparent 40%),
+        radial-gradient(circle at bottom left, rgba(212, 175, 55, 0.03), transparent 40%);
+}
+
+
+/* Navigation Fix for Questionnaire */
+nav {
+    background: rgba(5, 5, 5, 0.95) !important;
+    backdrop-filter: blur(15px) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.q-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.q-header h1 {
+    font-family: 'Outfit', sans-serif;
+    font-size: clamp(2rem, 8vw, 3rem);
+    margin-bottom: 1rem;
+    letter-spacing: 0.05em;
+    font-weight: 700;
+}
+
+.q-header p {
+    color: var(--text-secondary);
+    max-width: 700px;
+    margin: 0 auto;
+    font-family: var(--font-sans);
+}
+
+.progress-container {
+    width: 100%;
+    max-width: 800px;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.05);
+    margin: 2rem auto 0;
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 12.5%;
+    background: var(--text-accent);
+    box-shadow: 0 0 15px var(--text-accent);
+    transition: width 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+/* Form Card */
+.glass-form {
+    max-width: 850px;
+    margin: 0 auto;
+    background: rgba(10, 10, 10, 0.4);
+    backdrop-filter: blur(30px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 24px;
+    padding: 3.5rem;
+    position: relative;
+}
+
+.section-title {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 600;
+    font-size: clamp(1.3rem, 5vw, 1.6rem);
+    color: var(--text-accent);
+    margin-bottom: 3rem;
+    border-left: 3px solid var(--text-accent);
+    padding-left: 1.5rem;
+}
+
+.form-step {
+    display: none;
+    animation: slideIn 0.5s ease forwards;
+}
+
+.form-step.active {
+    display: block;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.form-group {
+    margin-bottom: 2.2rem;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #eee;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="number"],
+input[type="tel"],
+textarea {
+    width: 100%;
+    padding: 1.1rem 1.4rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    color: #fff;
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    transition: 0.3s;
+}
+
+input:focus,
+textarea:focus {
+    border-color: var(--text-accent);
+    background: rgba(255, 255, 255, 0.06);
+    outline: none;
+}
+
+/* Custom Select Dropdown FIX */
+.custom-select-wrapper {
+    position: relative;
+}
+
+.custom-select-wrapper select {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 100%;
+    padding: 1.1rem 1.4rem;
+    background: #111;
+    /* Solid dark for option visibility */
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.custom-select-wrapper select option {
+    background: #1a1a1a;
+    color: #fff;
+    padding: 10px;
+}
+
+.custom-select-wrapper i {
+    position: absolute;
+    right: 1.4rem;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: var(--text-accent);
+    font-size: 0.8rem;
+}
+
+/* File Upload */
+.file-upload-wrapper {
+    position: relative;
+    cursor: pointer;
+}
+
+.file-upload-wrapper input[type="file"] {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.file-dummy {
+    padding: 2.5rem;
+    border: 2px dashed rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    text-align: center;
+    transition: 0.3s;
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.file-upload-wrapper:hover .file-dummy {
+    border-color: var(--text-accent);
+    background: rgba(212, 175, 55, 0.03);
+}
+
+.file-dummy i {
+    font-size: 2rem;
+    color: var(--text-accent);
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.file-label {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+/* Sortable List (Ranking) */
+.sortable-list {
+    list-style: none;
+    margin-top: 1.5rem;
+}
+
+.sort-item {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.2rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    margin-bottom: 0.8rem;
+    cursor: grab;
+    transition: 0.2s;
+}
+
+.sort-item:hover {
+    background: rgba(212, 175, 55, 0.05);
+    border-color: rgba(212, 175, 55, 0.3);
+    transform: translateX(5px);
+}
+
+.sort-item.dragging {
+    opacity: 0.2;
+    background: var(--text-accent);
+    transform: scale(0.95);
+    border: 2px dashed var(--text-accent);
+}
+
+.sort-item:active {
+    cursor: grabbing;
+    background: rgba(212, 175, 55, 0.1);
+    border-color: var(--text-accent);
+}
+
+.sort-item i {
+    color: var(--text-accent);
+    opacity: 0.5;
+    font-size: 0.9rem;
+}
+
+.sort-item span {
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.other-rank-wrap {
+    flex-grow: 1;
+}
+
+.other-input {
+    padding: 0.5rem 1rem !important;
+    font-size: 0.9rem !important;
+    border-radius: 8px !important;
+}
+
+/* Finance Toggles */
+.radio-chip-group {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.radio-chip input {
+    display: none;
+}
+
+.radio-chip span {
+    padding: 0.8rem 2rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.radio-chip input:checked+span {
+    background: var(--text-accent);
+    color: #000;
+    border-color: var(--text-accent);
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+}
+
+.checkbox-chip input {
+    display: none;
+}
+
+.checkbox-chip span {
+    padding: 0.8rem 1.5rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 0.9rem;
+    font-weight: 600;
+    display: inline-block;
+}
+
+.checkbox-chip input:checked+span {
+    background: var(--text-accent);
+    color: #000;
+    border-color: var(--text-accent);
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+}
+
+/* Pricing removal & cleanup */
+.form-subset {
+    margin-top: 3rem;
+    animation: slideDown 0.4s ease forwards;
+}
+
+.form-subset h3 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: var(--text-secondary);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding-bottom: 0.5rem;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Nav Buttons */
+.form-nav {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.btn-gold {
+    background: var(--text-accent);
+    color: #000;
+    font-weight: 700;
+    padding: 1rem 3rem;
+    border-radius: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.15);
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-gold:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(212, 175, 55, 0.25);
+}
+
+.btn-outline {
+    background: transparent;
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 1rem 2.5rem;
+    border-radius: 0;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.85rem;
+}
+
+    @media (max-width: 768px) {
+        .glass-form {
+            padding: 2rem;
+        }
+
+        .form-row {
+            grid-template-columns: 1fr;
+            gap: 1rem;
+        }
+
+        .q-header h1 {
+            font-size: 2rem;
+        }
+    }
+
+/* Package Selection */
+.package-selection {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+}
+
+.package-card {
+    display: block;
+    cursor: pointer;
+    position: relative;
+    height: 100%;
+}
+
+.package-card input {
+    display: none;
+}
+
+.package-content {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.package-card.featured .package-content {
+    background: rgba(212, 175, 55, 0.05);
+    border-color: rgba(212, 175, 55, 0.3);
+}
+
+.package-content h3 {
+    color: #fff;
+    margin-bottom: 0.5rem;
+    font-size: 1.4rem;
+    font-family: var(--font-serif);
+}
+
+.package-content .price {
+    font-family: var(--font-serif);
+    font-size: 1.8rem;
+    color: var(--text-accent);
+    font-weight: 700;
+}
+
+.package-card input:checked + .package-content {
+    background: rgba(212, 175, 55, 0.1);
+    border-color: var(--text-accent);
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+    transform: translateY(-5px);
+}
