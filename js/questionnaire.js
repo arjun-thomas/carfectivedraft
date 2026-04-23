@@ -297,7 +297,7 @@ document.addEventListener('DOMContentLoaded', () => {
             data['g-recaptcha-response'] = resp;
         }
 
-        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwKSoiSwmt9IyLKuyZ26DVRLj9MegUaWchtI11lZygE_lDzrlBBXXxrEu777PBjinAb/exec';
+        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw_0jMWyofmIV0uJXstyRMnZTlPMOYrAZVU8fRu6xzAVuHFYVAFx2R6Ld0px2zq46ov/exec';
         try {
             if (SCRIPT_URL.includes('YOUR_GOOGLE_')) {
                 console.log('Simulating success (No URL set)...');
